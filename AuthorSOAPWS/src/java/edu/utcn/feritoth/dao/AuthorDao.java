@@ -42,7 +42,7 @@ public interface AuthorDao {
      * @param deathYear - the year when the author died
      * @param shortDescription - a brief comment about the author
      * @param referencePage - a reference page about the author
-     * @return the ID of the new author or 0, depending on the success of the result
+     * @return a boolean value showing whether or not the registration was successful
      */
     boolean registerNewAuthor(String name, String surname, int birthYear, 
                           int deathYear, String shortDescription, String referencePage);    
