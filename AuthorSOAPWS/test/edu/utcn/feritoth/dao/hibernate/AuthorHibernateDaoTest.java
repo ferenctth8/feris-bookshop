@@ -6,7 +6,6 @@ package edu.utcn.feritoth.dao.hibernate;
 
 import edu.utcn.feritoth.core.Author;
 import java.util.List;
-import junit.framework.Test;
 import junit.framework.TestCase;
 
 /**
