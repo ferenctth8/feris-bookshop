@@ -18,6 +18,10 @@ import org.hibernate.Transaction;
  */
 public class AuthorHibernateDao implements AuthorDao {
 
+    protected AuthorHibernateDao(){
+    
+    }
+    
     private Session createNewSession() {
         Session session = AuthorHibernateUtil.getSessionFactory().getCurrentSession();
         return session;
