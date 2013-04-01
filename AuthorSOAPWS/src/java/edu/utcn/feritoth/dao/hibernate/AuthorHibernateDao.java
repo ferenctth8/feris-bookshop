@@ -127,15 +127,22 @@ public class AuthorHibernateDao implements AuthorDao {
         //create a new session and a new transaction 
         Session currentSession = createNewSession();
         Transaction tx = currentSession.beginTransaction();
+        //define the placement variable for the new description
+        String currentDescription = null;
         //execute the transaction in question
         try {
             tx.begin();
             Query q = currentSession.createQuery("from Author as author where author.authorId=" + authorID);          
             Author selectedAuthor = (Author) q.uniqueResult();
+            currentDescription = selectedAuthor.getShortDescription();
             boolean descOK1 = (newDescription != null) ? true : false;
             boolean descOK2 = (newDescription.length() > 0) ? true : false;
             if (selectedAuthor != null && descOK1 && descOK2) {
                 selectedAuthor.setShortDescription(newDescription);
+                currentSession.update(selectedAuthor);
+                tx.commit();
+            } else {
+                selectedAuthor.setShortDescription(currentDescription); 
                 currentSession.update(selectedAuthor);
                 tx.commit();
             }

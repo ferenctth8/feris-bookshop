@@ -66,7 +66,7 @@ public class AuthorHibernateDaoTest extends TestCase {
     /**
      * Test of registerNewAuthor method, of class AuthorHibernateDao.
      */
-    public void testRegisterNewAuthor() {
+    /*public void testRegisterNewAuthor() {
         System.out.println("registerNewAuthor");
         String name = "Herbert George";
         String surname = "Wells";
@@ -78,7 +78,7 @@ public class AuthorHibernateDaoTest extends TestCase {
         boolean expResult = true;
         boolean result = instance.registerNewAuthor(name, surname, birthYear, deathYear, shortDescription, referencePage);
         assertEquals(expResult, result);        
-    }
+    }*/
 
     /**
      * Test of updateExistingAuthor method, of class AuthorHibernateDao.
@@ -86,7 +86,7 @@ public class AuthorHibernateDaoTest extends TestCase {
     public void testUpdateExistingAuthor() {
         System.out.println("updateExistingAuthor");
         int authorID = 31;
-        String newDescription = "The Pioneer of Existentialism";
+        String newDescription = "";
         AuthorHibernateDao instance = new AuthorHibernateDao();
         boolean expResult = true;
         boolean result = instance.updateExistingAuthor(authorID, newDescription);
