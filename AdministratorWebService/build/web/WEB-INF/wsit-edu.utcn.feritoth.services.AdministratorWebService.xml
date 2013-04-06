@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <definitions 
+ xmlns="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="AdministratorWS" targetNamespace="http://services.feritoth.utcn.edu/" xmlns:tns="http://services.feritoth.utcn.edu/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsrm="http://docs.oasis-open.org/ws-rx/wsrmp/200702" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" 
+ >
+    <message name="returnAllAdmins"/>
+    <message name="returnAllAdminsResponse"/>
+    <message name="findOnlineAdmin"/>
+    <message name="findOnlineAdminResponse"/>
+    <message name="findAdminByID"/>
+    <message name="findAdminByIDResponse"/>
+    <portType name="AdministratorWebService">
+        <operation name="returnAllAdmins">
+            <input message="tns:returnAllAdmins"/>
+            <output message="tns:returnAllAdminsResponse"/>
+        </operation>
+        <operation name="findOnlineAdmin">
+            <input message="tns:findOnlineAdmin"/>
+            <output message="tns:findOnlineAdminResponse"/>
+        </operation>
+        <operation name="findAdminByID">
+            <input message="tns:findAdminByID"/>
+            <output message="tns:findAdminByIDResponse"/>
+        </operation>
+    </portType>
+    <binding name="AdministratorWebServicePortBinding" type="tns:AdministratorWebService">
+        <wsp:PolicyReference URI="#AdministratorWebServicePortBindingPolicy"/>
+        <operation name="returnAllAdmins">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="findOnlineAdmin">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="findAdminByID">
+            <input/>
+            <output/>
+        </operation>
+    </binding>
+    <service name="AdministratorWS">
+        <port name="AdministratorWebServicePort" binding="tns:AdministratorWebServicePortBinding"/>
+    </service>
+    <wsp:Policy wsu:Id="AdministratorWebServicePortBindingPolicy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <wsam:Addressing wsp:Optional="false"/>
+                <wsrm:RMAssertion/>
+                <wsoma:OptimizedMimeSerialization/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="AdministratorWebServicePortBinding_hello_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="AdministratorWebServicePortBinding_hello_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="AdministratorWebServicePortBinding_findAdminByID_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="AdministratorWebServicePortBinding_findAdminByID_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+</definitions>
