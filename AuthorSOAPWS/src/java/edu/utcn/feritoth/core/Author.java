@@ -88,7 +88,7 @@ public class Author implements Serializable {
 
     public String createAuthorJson() {
         JSONObject authorJson = new JSONObject();
-        authorJson.put("userID", authorId);
+        authorJson.put("authorID", authorId);
         authorJson.put("name", name);
         authorJson.put("yearsOfLife", yearsOfLife);
         authorJson.put("shortDescription", shortDescription);
